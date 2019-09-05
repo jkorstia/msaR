@@ -14,35 +14,22 @@ msaR is a an [htmlwidgets](https://github.com/ramnathv/htmlwidgets) wrapper of t
 
 Any of these types of objects can be passed to msaR to create an html widget. See [the online docs](https://zachcp.github.io/msaR/) for an interactive version of this widget.
 
-Installation
-------------
-
-You can install msaR from github with:
-
-``` r
-install.packages("msaR")
+## updates & new installation instructions
+This fork adjusts a few of the default settings in the msaR package.
+This version has NOT been committed to CRAN.
+To install this version:
+```
+git clone https://github.com/jkorstia/msaR.git
+R CMD INSTALL msaR
+```
+Or via [devtools](https://github.com/hadley/devtools)
+```
+devtools::install_github('jkorstia/msaR')
 ```
 
-Example
--------
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
+Running msaR is easy:
 library(msaR)
-
-# read some sequences from a multiple sequence alignment file and display
-seqfile <- system.file("sequences","AHBA.aln", package="msaR")
-msaR(seqfile)
-```
-
-![](man/figures/msaR_screenshot.png)
-
-All contributions are welcome! Please feel free to submit a pull request.
-
-### Support and Suggestions
-
-If you have any problem or suggestion please open an issue [here](https://github.com/zachcp/msaR/issues)
+msaR("file.fa")
 
 ### License
 
