@@ -3,33 +3,32 @@
 msaR
 ====
 
-[![Travis Build Status](https://travis-ci.org/zachcp/msaR.svg?branch=master)](https://travis-ci.org/zachcp/msaR) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/msaR)](https://cran.r-project.org/package=msaR)
 
-msaR is a an [htmlwidgets](https://github.com/ramnathv/htmlwidgets) wrapper of the [BioJS MSA viewer](https://github.com/wilzbach/msa) javascript library. msa will pass alignments to the BioJS MSA and has a convenience function that will handle the following formats:
-
-1.  A character string which is interpreted to be a fasta file (opened by `ape::read.dna`)
-2.  A DNAbin class object (ape)
-3.  An XStringSet (Biostrings) including "DNAStringSet", "RNAStringSet", "AAStringSet", and "BStringSet"
-4.  An XMultiple Alignment (Biostings) including "DNAMultipleAlignment","RNAMultipleAlignment", and"AAMultipleAlignment"
-
-Any of these types of objects can be passed to msaR to create an html widget. See [the online docs](https://zachcp.github.io/msaR/) for an interactive version of this widget.
+msaR is a an [htmlwidgets](https://github.com/ramnathv/htmlwidgets) wrapper of the [BioJS MSA viewer](https://github.com/wilzbach/msa) javascript library. msa will pass alignments to the BioJS MSA 
 
 ## updates & new installation instructions
 This fork adjusts a few of the default settings in the msaR package.
 This version has NOT been committed to CRAN.
-To install this version:
-```
-git clone https://github.com/jkorstia/msaR.git
-R CMD INSTALL msaR
-```
-Or via [devtools](https://github.com/hadley/devtools)
+You will need to have the following packages installed as well: Rtools, Rcpp, devtools, htmlwidgets
+
+To install this package:
 ```
 devtools::install_github('jkorstia/msaR')
+  ## When prompted during installation of msaR, do not install any updates.
+```
+Running msaR is easy:
+```
+library(msaR)
+msaR("file.fa") 
+  ## Note: file.fa must be located in your current working directory
 ```
 
-Running msaR is easy:
-library(msaR)
-msaR("file.fa")
+To save the output to an html file:
+```
+library(htmlwidget)
+y=msaR("file.fa")
+saveWidget(y, "file.html")
+```
 
 ### License
 
